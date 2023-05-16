@@ -29,26 +29,28 @@ class Models():
         cursor.execute("SELECT * FROM login WHERE usuario=%s AND contraseña=%s", (username, password))
         user = cursor.fetchone()
 
-        if not user:
-            response = {
-                'success': False,
-                'message': 'Usuario o contraseña incorrectos'
-            }
-            return jsonify(response), 401
-
-        # Generar el token JWT
-        token_payload = {
+        if  user:
+            token_payload = {
             'sub': user[0],
             'exp': datetime.utcnow() + timedelta(days=1)
-        }
-        token = jwt.encode(token_payload, 'secret', algorithm='HS256')
+            }
+            token = jwt.encode(token_payload, 'secret', algorithm='HS256')
 
-        response = {
+
+            response = {
             'success': True,
             'message': 'Login exitoso',
             'token': token
         }
-        return jsonify(response), 200
+        else:
+            response = {
+            'success': False,
+            'message': 'Usuario o contraseña incorrectos'
+        }
+               
+            
+        
+        return jsonify(response)
    
 
 
