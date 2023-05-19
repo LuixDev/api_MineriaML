@@ -25,6 +25,18 @@ class controller():
     def  getQuality(self):
         query=mod_admin.getQuality()
         return query
+    
+    def  enviar(self):
+        query=mod_admin.enviar()
+        return query
+    
+    def  getn(self):
+        query=mod_admin.getn()
+        return query
+    
+    def  eliminar_notificacion(self):
+        query=mod_admin.eliminar_notificacion()
+        return query
         
         
         

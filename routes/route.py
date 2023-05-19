@@ -35,3 +35,19 @@ def getQuality():
 @cross_origin()
 def predecir():
    return conexion.predecir()
+
+@usuarios.route('/enviar', methods=['POST'])
+@cross_origin()
+def enviar():
+   return conexion.enviar()
+
+
+@usuarios.route('/getn', methods=['GET'])
+@cross_origin()
+def getn():
+   return conexion.getn()
+
+@usuarios.route('/eliminar', methods=['POST'])
+@cross_origin()
+def eliminar_notificacion():
+   return conexion.eliminar_notificacion()
