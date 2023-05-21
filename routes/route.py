@@ -51,3 +51,19 @@ def getn():
 @cross_origin()
 def eliminar_notificacion():
    return conexion.eliminar_notificacion()
+
+
+@usuarios.route('/survived', methods=['GET'])
+@cross_origin()
+def getSurvived():
+   return conexion.getSurvived()
+
+@usuarios.route('/psa', methods=['GET'])
+@cross_origin()
+def getPsa():
+   return conexion.getPsa()
+
+@usuarios.route('/age', methods=['GET'])
+@cross_origin()
+def getAge():
+   return conexion.getAge()

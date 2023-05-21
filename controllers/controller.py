@@ -34,6 +34,18 @@ class controller():
         query=mod_admin.getn()
         return query
     
+    def  getSurvived(self):
+        query=mod_admin.getSurvived()
+        return query
+    
+    def  getPsa(self):
+        query=mod_admin.getPsa()
+        return query
+    
+    def  getAge(self):
+        query=mod_admin.getAge()
+        return query
+    
     def  eliminar_notificacion(self):
         query=mod_admin.eliminar_notificacion()
         return query

@@ -167,6 +167,38 @@ class Models():
 
     # Devolver el dato como JSON
     return jsonify({'quality': result[0]})
+   
+
+   def getSurvived(self):
+    cur = connection.cursor()
+    cur.execute('SELECT CAST(survived AS INTEGER) FROM titanic')  # Conversión explícita a enteros
+    results = cur.fetchall()
+    cur.close()
+
+    survived_data = [result[0] for result in results]  # Almacenar los datos en un arreglo
+
+    count_yes = survived_data.count(1)  # Contar el número de ocurrencias del valor 1 (sí)
+    print("hola probando",count_yes)
+    return jsonify(count_yes)
+
+
+   def getPsa(self):
+    print("total pasajero 892 porque es el total de dato que estamos utilizando")
+    num="892"
+    return jsonify(num)
+
+   def getAge(self):
+    cur = connection.cursor()
+    cur.execute('SELECT age FROM titanic')
+    results = cur.fetchall()
+    numeros = [float(tupla[0]) for tupla in results if tupla[0] is not None]
+    valor_maximo = max(numeros)
+    numero_entero = int(valor_maximo)
+    print(numero_entero)
+    cur.close()
+
+    return jsonify(numero_entero)
+
 
  
 
